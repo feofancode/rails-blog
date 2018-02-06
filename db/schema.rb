@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206083259) do
+ActiveRecord::Schema.define(version: 20180206135220) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20180206083259) do
     t.date "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "articles_tags", id: false, force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["article_id", "tag_id"], name: "index_articles_tags_on_article_id_and_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

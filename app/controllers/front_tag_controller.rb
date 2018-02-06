@@ -1,4 +1,7 @@
 class FrontTagController < ApplicationController
+  layout 'blog'
+
+  
   def index
   end
 

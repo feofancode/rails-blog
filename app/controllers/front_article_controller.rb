@@ -1,4 +1,5 @@
 class FrontArticleController < ApplicationController
+  layout 'blog'
   def index
   end
 

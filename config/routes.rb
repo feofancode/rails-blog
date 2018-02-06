@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'tags', to: 'front_tag#index'
   get 'tags/:id', to: 'front_tag#show'
 
-  get 'admin', to: 'admin#index'
+  get 'admin', to: 'admin/admin#index'
   namespace :admin do
     resources :tags, :articles
   end

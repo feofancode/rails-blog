@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+	
+  root 'home#index'
+
+  get 'articles', to: 'front_article#index'
+  get 'articles/:id', to: 'front_article#show'
+
+  get 'tags', to: 'front_tag#index'
+  get 'tags/:id', to: 'front_tag#show'
+
+  get 'admin', to: 'admin#index'
   namespace :admin do
     resources :tags, :articles
   end

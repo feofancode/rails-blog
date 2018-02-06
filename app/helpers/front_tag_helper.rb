@@ -1,0 +1,2 @@
+module FrontTagHelper
+end

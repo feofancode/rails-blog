@@ -1,2 +1,41 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+	padding-top: 60px;
+}
+
+section {
+	overflow: auto;
+}
+
+textarea {
+	resize: vertical;
+}
+
+.center {
+	text-align: center;
+}
+
+.center h1 {
+	margin-bottom: 10px;
+}
+
+//nav
+
+#logo {
+	float: left;
+	margin-right: 10px;
+	font-size: 1.7em;
+	color: #fff;
+	letter-sapcing: -1px;
+	padding-top: 16px;
+	font-weight: bold;
+	height: 50px;
+}
+
+#logo:hover {
+	color: #fff;
+	background-color: transparent;
+	text-decoration: none;
+}

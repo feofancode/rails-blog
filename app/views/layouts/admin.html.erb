@@ -6,7 +6,10 @@
   </head>
 
   <body>
-  	<h1>Admin</h1>
-    <%= yield %>
+  	<%= render 'layouts/nav_header_admin' %>	
+  	<div class="container">
+  		<h1>Admin</h1>
+    	<%= yield %>
+  	</div>
   </body>
 </html>

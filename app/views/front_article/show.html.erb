@@ -1,2 +1,6 @@
-<h1>FrontArticle#show</h1>
-<p>Find me in app/views/front_article/show.html.erb</p>
+<h1><%= @article.title %></h1>
+<p><%= @article.markdown %></p>
+
+<div>
+	<%= @article.html.html_safe %>
+</div>

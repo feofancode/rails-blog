@@ -1,16 +1,11 @@
 class Admin::TagsController < ApplicationController
   layout 'admin'
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag, only: [:edit, :update, :destroy]
 
   # GET /tags
   # GET /tags.json
   def index
     @tags = Tag.all
-  end
-
-  # GET /tags/1
-  # GET /tags/1.json
-  def show
   end
 
   # GET /tags/new

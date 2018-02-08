@@ -1,0 +1,4 @@
+<li>
+	<time><%= article.published_at.strftime("%Y-%m-%d") %></time>
+	<a href="<%= article_path(article) %>"><%= article.title %></a>
+</li>

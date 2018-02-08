@@ -1,16 +1,11 @@
 class Admin::ArticlesController < ApplicationController
   layout 'admin'
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
-  end
-
-  # GET /articles/1
-  # GET /articles/1.json
-  def show
+    @articles = Article.order(published_at: :desc)
   end
 
   # GET /articles/new
@@ -26,10 +21,12 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.published_at = Time.now
+    @article.html = markdown_to_html(@article.markdown)
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully created.' }
+        format.html { redirect_to admin_articles_url, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -43,7 +40,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' }
+        format.html { redirect_to admin_articles_url, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -71,5 +68,10 @@ class Admin::ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :author, :markdown)
+    end
+
+    def markdown_to_html(raw)
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+      markdown.render(raw)
     end
 end

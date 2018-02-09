@@ -26,8 +26,10 @@
     <%= form.text_area :markdown, id: :article_markdown, class: "form-control" %>
   </div>
 
-  <div>
-    
+  <div class="form-group">
+    <%= form.fields_for :tags do |tags_form| %>
+      <%= render 'tag_fields', :f => tags_form %>
+    <% end %>
   </div>
 
   <div class="actions">

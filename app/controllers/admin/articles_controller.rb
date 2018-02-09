@@ -40,6 +40,10 @@ class Admin::ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        if params[:article][:tags].nil?
+          @article.tags.clear
+          @article.save
+        end
         format.html { redirect_to admin_articles_url, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else

@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   layout 'admin'
+  before_action :log_in_admin
   before_action :set_article, only: [:edit, :update, :destroy]
 
   # GET /articles

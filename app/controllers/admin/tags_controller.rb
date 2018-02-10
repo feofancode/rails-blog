@@ -1,5 +1,6 @@
 class Admin::TagsController < ApplicationController
   layout 'admin'
+  before_action :log_in_admin
   before_action :set_tag, only: [:edit, :update, :destroy]
 
   # GET /tags

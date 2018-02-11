@@ -26,13 +26,19 @@
     <%= form.text_area :markdown, id: :article_markdown, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.fields_for :tags do |tags_form| %>
-      <%= render 'tag_fields', :f => tags_form %>
-    <% end %>
+  <div>
+    <%= form.label :tags %>
+    <div class="tag-input">
+    </div>
+    <div class="form-group" id="tag_group">
+      <%= form.fields_for :tags do |tags_form| %>
+        <%= tags_form.text_field :name, class: "form-control" %>
+      <% end %>
+    </div>
   </div>
-
+  
   <div class="actions">
     <%= form.submit class: "btn btn-default" %>
+    <%= link_to 'Back', admin_articles_path, class: "btn btn-default" %>
   </div>
 <% end %>

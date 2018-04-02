@@ -1,2 +1,6 @@
 <h1>FrontTag#show</h1>
-<p>Find me in app/views/front_tag/show.html.erb</p>
+<h1><%= @tag.name %></h1>
+<ul>
+	<%= render partial: "front_article/article", collection: @articles %>
+</ul>
+

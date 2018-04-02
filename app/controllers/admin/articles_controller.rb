@@ -41,10 +41,6 @@ class Admin::ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        if params[:article][:tags].nil?
-          @article.tags.clear
-          @article.save
-        end
         format.html { redirect_to admin_articles_url, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -72,7 +68,7 @@ class Admin::ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :author, :markdown, tags_attributes: [:id, :name])
+      params.require(:article).permit(:title, :author, :markdown, :tag_list)
     end
 
     def markdown_to_html(raw)

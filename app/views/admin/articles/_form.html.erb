@@ -28,13 +28,7 @@
 
   <div>
     <%= form.label :tags %>
-    <div class="tag-input">
-    </div>
-    <div class="form-group" id="tag_group">
-      <%= form.fields_for :tags do |tags_form| %>
-        <%= tags_form.text_field :name, class: "form-control" %>
-      <% end %>
-    </div>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s, id: :tag_list, class: "form-control" %>
   </div>
   
   <div class="actions">

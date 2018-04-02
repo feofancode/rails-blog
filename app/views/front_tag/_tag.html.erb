@@ -1,3 +1,6 @@
 <div>
-	<%= link_to tag.name, tag_path(tag) %>
+	<h2><%= tag.name %></h2>
+	<ul>
+		<%= render partial: "front_article/article", collection: Article.tagged_with(tag.name) %>
+	</ul>
 </div>

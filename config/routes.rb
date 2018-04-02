@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'articles/:id', to: 'front_article#show', as: 'article'
 
   get 'tags', to: 'front_tag#index'
-  get 'tags/:id', to: 'front_tag#show', as: 'tag'
 
   get 'admin', to: 'admin/admin#index'
   namespace :admin do

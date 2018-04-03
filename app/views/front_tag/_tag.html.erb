@@ -1,5 +1,5 @@
 <div>
-	<h2><%= tag.name %></h2>
+	<h2 id="tag-<%= tag.name %>"><%= tag.name %></h2>
 	<ul>
 		<%= render partial: "front_article/article", collection: Article.tagged_with(tag.name) %>
 	</ul>

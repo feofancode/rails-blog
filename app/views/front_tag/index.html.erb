@@ -1,7 +1,11 @@
 <% provide(:title, "Tags" )%>
 
-<% @tags.each do |tag| %>
-<%= link_to "#{tag.name}", "#tag-#{tag.name}" %>
-<% end %>
+<div>
+	<% @tags.each do |tag| %>
+		<%= link_to "#{tag.name}", "#tag-#{tag.name}" %>
+	<% end %>
+</div>
 
-<%= render partial: "front_tag/tag", collection: @tags %>
+<div>
+	<%= render partial: "front_tag/tag", collection: @tags %>
+</div>

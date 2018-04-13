@@ -1,6 +1,10 @@
 <div>
-	<a href="<%= article_path(article) %>">
-		<h2><%= article.title %></h1>
-		<p><%= article.markdown %></p>
-	</a>
+	<h2>
+		<a class="home_article_list" href="<%= article_path(article) %>">
+			<%= article.title %>
+		</a>
+	</h2>
+	<p>
+		<%= article.markdown %>
+	</p>
 </div>

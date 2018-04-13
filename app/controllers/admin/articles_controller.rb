@@ -22,8 +22,6 @@ class Admin::ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    @article.published_at = Time.now
-    @article.html = markdown_to_html(@article.markdown)
 
     respond_to do |format|
       if @article.save
@@ -69,10 +67,5 @@ class Admin::ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :author, :markdown, :tag_list)
-    end
-
-    def markdown_to_html(raw)
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-      markdown.render(raw)
     end
 end

@@ -1,5 +1,7 @@
-<h1><%= @article.title %></h1>
-<p><%= @article.tag_list %></p>
+<div id="article_detail_header">
+	<h1><%= @article.title %></h1>
+	<p><%= @article.tag_list %></p>
+</div>
 
 <div>
 	<%= @article.html.html_safe %>

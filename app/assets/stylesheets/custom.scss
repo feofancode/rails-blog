@@ -39,3 +39,16 @@ textarea {
 	background-color: transparent;
 	text-decoration: none;
 }
+
+#home_side_bar {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	top: 50px;
+}
+
+#article_detail_header {
+	h1 {
+		margin: 0 auto;
+	}
+}
